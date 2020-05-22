@@ -1,6 +1,6 @@
 let g:tictactoe#location = get(g:, 'tictactoe#location', 'aboveleft')
 let g:tictactoe#show_controls = get(g:, 'tictactoe#show_controls', 1)
-let g:tictactoe#players = get(g:, 'tictactoe#players', ['x', 'o'])
+let g:tictactoe#players = get(g:, 'tictactoe#players', ['X', 'O'])
 let g:tictactoe#board_pieces = ['|', '-', '+']
 
 function! s:draw(...) dict abort
