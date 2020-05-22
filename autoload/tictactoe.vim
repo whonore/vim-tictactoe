@@ -1,11 +1,17 @@
 let g:tictactoe#location = get(g:, 'tictactoe#location', 'aboveleft')
 let g:tictactoe#show_controls = get(g:, 'tictactoe#show_controls', 1)
 let g:tictactoe#players = get(g:, 'tictactoe#players', ['x', 'o'])
+let g:tictactoe#board_pieces = ['|', '-', '+']
 
 function! s:draw(...) dict abort
+  let [l:vert, l:horz, l:cross] = g:tictactoe#board_pieces
+  let l:mk_vert = printf('" " . join(v:val, " %s ") . " "', l:vert)
+  let l:horz_sec = repeat(l:horz, self.width / 3)
+  let l:mk_horz = l:horz_sec . l:cross . l:horz_sec . l:cross . l:horz_sec
+
   let l:board = self.grid()
-  let l:board = map(l:board, '" " . join(v:val, " | ") . " "')
-  let l:board = split(join(l:board, "\n" . repeat('-', self.width) . "\n"), '\n')
+  let l:board = map(l:board, l:mk_vert)
+  let l:board = split(join(l:board, "\n" . l:mk_horz . "\n"), '\n')
 
   let l:winner = self.winner()
   let l:msgs = [

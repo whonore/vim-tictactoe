@@ -16,6 +16,10 @@ syn match tttCurPlayer 'Current Player:'
 syn match tttError 'Error:'
 syn region tttInstrKey start=+"+ end=+"+
 
+for s:piece in g:tictactoe#board_pieces
+  execute 'syn match tttBoard "' . s:piece . '"'
+endfor
+
 hi def tttPlay1 ctermfg=10
 hi def tttPlay2 ctermfg=11
 hi def tttWin1Msg ctermfg=10
@@ -23,3 +27,4 @@ hi def tttWin2Msg ctermfg=11
 hi def link tttCurPlayer Label
 hi def link tttError Error
 hi def link tttInstrKey Keyword
+hi def link tttBoard Special
