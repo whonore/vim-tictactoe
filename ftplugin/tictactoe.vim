@@ -11,7 +11,10 @@ setlocal bufhidden=hide
 
 nnoremap <buffer> <silent> <SPACE> :call b:board.move(getpos('.')[1:2])<CR>
 nnoremap <buffer> <silent> R :call b:board.reset()<CR>
+nmap <buffer> <silent> r R
 nnoremap <buffer> <silent> h :call b:board.setpos([0, -1])<CR>
 nnoremap <buffer> <silent> l :call b:board.setpos([0, 1])<CR>
 nnoremap <buffer> <silent> j :call b:board.setpos([1, 0])<CR>
 nnoremap <buffer> <silent> k :call b:board.setpos([-1, 0])<CR>
+nnoremap <buffer> <silent> Q :quit<CR>
+nmap <buffer> <silent> q Q
