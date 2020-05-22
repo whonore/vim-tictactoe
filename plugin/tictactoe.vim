@@ -3,4 +3,4 @@ if exists('g:loaded_tictactoe')
 endif
 let g:loaded_tictactoe = 1
 
-command! TicTacToe call tictactoe#Start(<q-mods>)
+command! -bang TicTacToe call tictactoe#Start(<q-mods>, <bang>0)
