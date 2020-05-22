@@ -10,6 +10,7 @@ setlocal noswapfile
 setlocal bufhidden=hide
 
 nnoremap <buffer> <silent> <SPACE> :call b:board.move(getpos('.')[1:2])<CR>
+nmap <buffer> <silent> <RETURN> <SPACE>
 nnoremap <buffer> <silent> R :call b:board.reset()<CR>
 nmap <buffer> <silent> r R
 nnoremap <buffer> <silent> h :call b:board.setpos([0, -1])<CR>

@@ -16,7 +16,7 @@ function! s:draw(...) dict abort
 
   let l:controls = [
     \ 'Move the cursor with "h/j/k/l"',
-    \ 'Make a move with "<SPACE>"',
+    \ 'Make a move with "<SPACE>/<RETURN>"',
     \ 'Restart with "R"',
     \ 'Quit with "Q"'
   \]
