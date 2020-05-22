@@ -1,5 +1,6 @@
 let g:tictactoe#location = get(g:, 'tictactoe#location', 'aboveleft')
 let g:tictactoe#show_controls = get(g:, 'tictactoe#show_controls', 1)
+let g:tictactoe#players = get(g:, 'tictactoe#players', ['x', 'o'])
 
 function! s:draw(...) dict abort
   let l:board = self.grid()
@@ -141,7 +142,7 @@ function! s:new(mod, use_cur) abort
   return {
     \ 'width': 3 * 3 + 2,
     \ 'height': 3 + 2,
-    \ 'players': ['x', 'o'],
+    \ 'players': g:tictactoe#players,
     \ 'player': 0,
     \ 'moves': [],
     \ 'draw': function('s:draw'),
