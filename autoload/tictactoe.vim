@@ -17,8 +17,12 @@ function! s:draw(...) dict abort
   let l:msgs = [
     \ empty(l:winner)
       \ ? 'Current Player: ' . self.players[self.player]
-      \ : printf('Player %s won!', l:winner)
+      \ : printf('Game Over: Player %s won!', l:winner)
   \] + a:000
+
+  if empty(l:winner) && len(self.moves) == 9
+    let l:msgs += ['Game Over: No valid moves left.']
+  endif
 
   let l:help = [
     \ 'Toggle help with "?"',
@@ -65,7 +69,7 @@ function! s:grid_to_pos(pos) dict abort
 endfunction
 
 function! s:move(pos) dict abort
-  if !empty(self.winner())
+  if !empty(self.winner()) || len(self.moves) == 9
     return
   endif
 

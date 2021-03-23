@@ -14,6 +14,7 @@ execute 'syn match tttPlay2 "\<' . s:play2 . '\>"'
 execute 'syn match tttWin1Msg "Player ' . s:play1 . ' won!"'
 execute 'syn match tttWin2Msg "Player ' . s:play2 . ' won!"'
 syn match tttCurPlayer 'Current Player:'
+syn match tttGameOver 'Game Over:'
 syn match tttError 'Error:'
 syn region tttInstrKey start=+"+ end=+"+
 
@@ -26,6 +27,7 @@ execute 'hi def tttPlay2 ctermfg=' . s:play2_hl
 execute 'hi def tttWin1Msg ctermfg=' . s:play1_hl
 execute 'hi def tttWin2Msg ctermfg=' . s:play2_hl
 hi def link tttCurPlayer Label
+hi def link tttGameOver Label
 hi def link tttError Error
 hi def link tttInstrKey Keyword
 hi def link tttBoard Special
