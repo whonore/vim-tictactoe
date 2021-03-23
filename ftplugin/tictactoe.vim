@@ -23,3 +23,9 @@ nmap <buffer> <silent> <Down> j
 nmap <buffer> <silent> <Up> k
 nnoremap <buffer> <silent> Q :quit<CR>
 nmap <buffer> <silent> q Q
+
+" Snap cursor to grid
+augroup tictactoe
+  autocmd!
+  autocmd CursorMoved <buffer> call b:board.setpos([0, 0])
+augroup END

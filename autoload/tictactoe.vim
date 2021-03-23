@@ -167,4 +167,5 @@ function! tictactoe#start(mods, newbuf) abort
   let l:mod = join(filter(split(a:mods, ' '), 'v:val =~# ' . l:modpat), ' ')
   let b:board = s:new(!empty(l:mod) ? l:mod : g:tictactoe#location, a:newbuf)
   call b:board.draw()
+  call b:board.setpos([0, 0])
 endfunction
