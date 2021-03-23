@@ -9,6 +9,9 @@ setlocal buftype=nofile
 setlocal noswapfile
 setlocal bufhidden=hide
 
+nnoremap <buffer> <silent> ?
+  \ :let b:tictactoe_help = !get(b:, 'tictactoe_help', g:tictactoe#help)
+  \ <bar> call b:board.draw()<CR>
 nnoremap <buffer> <silent> <SPACE> :call b:board.move(getpos('.')[1:2])<CR>
 nmap <buffer> <silent> <RETURN> <SPACE>
 nnoremap <buffer> <silent> R :call b:board.reset()<CR>

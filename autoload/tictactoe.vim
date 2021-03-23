@@ -1,5 +1,5 @@
 let g:tictactoe#location = get(g:, 'tictactoe#location', 'aboveleft')
-let g:tictactoe#show_controls = get(g:, 'tictactoe#show_controls', 1)
+let g:tictactoe#help = get(g:, 'tictactoe#help', 1)
 let g:tictactoe#players = get(g:, 'tictactoe#players', ['X', 'O'])
 let g:tictactoe#board_pieces = ['|', '-', '+']
 
@@ -20,7 +20,8 @@ function! s:draw(...) dict abort
       \ : printf('Player %s won!', l:winner)
   \] + a:000
 
-  let l:controls = [
+  let l:help = [
+    \ 'Toggle help with "?"',
     \ 'Move the cursor with "h/j/k/l"',
     \ 'Make a move with "<SPACE>/<RETURN>"',
     \ 'Restart with "R"',
@@ -28,8 +29,8 @@ function! s:draw(...) dict abort
   \]
 
   let l:out = l:board + [''] + l:msgs
-  if g:tictactoe#show_controls
-    let l:out += [''] + l:controls
+  if get(b:, 'tictactoe_help', g:tictactoe#help)
+    let l:out += [''] + l:help
   endif
 
   let l:cur = getcurpos()
