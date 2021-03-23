@@ -141,8 +141,8 @@ function! s:setpos(off) dict abort
   call setpos('.', [0, l:row, l:col, 0])
 endfunction
 
-function! s:new(mod, use_cur) abort
-  let l:new = a:use_cur ? 'enew' : a:mod . ' new'
+function! s:new(mod, newbuf) abort
+  let l:new = !a:newbuf ? 'enew' : a:mod . ' new'
   execute l:new
   setfiletype tictactoe
   return {
@@ -162,10 +162,9 @@ function! s:new(mod, use_cur) abort
   \}
 endfunction
 
-function! tictactoe#Start(mods, use_cur) abort
-  let l:modpat = escape('\%(above\|below\|top\|bot\|vert\)', '\')
-  let l:mod = join(filter(split(a:mods, ' '),
-    \ 'v:val =~# "' . l:modpat . '"'), ' ')
-  let b:board = s:new(!empty(l:mod) ? l:mod : g:tictactoe#location, a:use_cur)
+function! tictactoe#start(mods, newbuf) abort
+  let l:modpat = escape('"\%(above\|below\|top\|bot\|vert\)"', '\')
+  let l:mod = join(filter(split(a:mods, ' '), 'v:val =~# ' . l:modpat), ' ')
+  let b:board = s:new(!empty(l:mod) ? l:mod : g:tictactoe#location, a:newbuf)
   call b:board.draw()
 endfunction
